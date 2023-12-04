@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+{% if category %}
+    {{category.desc | truncatewords:155}}
+{% else %}
+    welcome to our cafe
+{% endif %}
+{% endblock %}
+{% block title %}
+{% if category %}
+    {{category.name}} - ABC Cafe
+{% else %}
+    See our Menu - ABC Cafe
+{% endif %}
+{% endblock %}
+{% block content %}
+{% if category %}
+<div>
+    <img class="pd_img" src="{{category.img.url}}" alt="{{category.name}}">
+</div>
+<br>
+<div>
+    <h2 class="text-center">{{category.name}}</h2>
+    <p>{{category.desc}}</p>
+</div>
+{% else %}
+<div>
+    <img class="banner" src="{% static 'img/banner.png' %}" alt="banner.img">
+</div>
+<br>
+<div>
+    <h2 class="main_head text-center">Our Menu List</h2>
+    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English</p>
+</div>
+{% endif %}
+<div class="container">
+    <div class="row">
+        {% for product in products.object_list %}
+        <div class="col-md-4">
+            <div class="card p-3 shadow text-center" style="min-width:18rem;">
+                <a href="{{product.get_url}}"><img class="cat_img" src="{{product.img.url}}" alt="{{product.name}}"></a>
+                <div class="card-body">
+                    <h3>{{product.name}}</h3>
+                    <p>{{product.price}}</p>
+                </div>
+            </div>
+            <br>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<br>
+<div class="container">
+    <div class="row mx-auto">
+        {% if products.paginator.num_pages > 1 %}
+        <hr>
+        <div class="text-center">
+            {%  for pg in products.paginator.page_range %}
+            <a href="?page={{pg}}" class="btn btn-light btn-sm {% if products.number == pg %} active {% endif %}">{{pg}}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+<br>
+{% endblock %}

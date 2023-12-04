@@ -1,0 +1,47 @@
+.cat_img{
+         height:220px;
+         width:320px;
+         }
+.banner{
+        height:502px;
+        width:auto;
+        }
+.logo{
+      height:250px;
+      width:250px;
+      }
+.main_head{
+            text-transform:uppercase;
+           }
+.pd_img{
+        height:400px;
+        width:1270px;
+        }
+.footer{
+        height:250px;
+        background-color:black;
+        color:white;
+        padding-top:50px;
+        }
+body{
+        font-family: 'Playfair Display', serif;
+      }
+.bar{
+     text-transform:uppercase;
+     }
+.pdt_img{
+         height:300px;
+         width:500px;
+         }
+.nav-item{
+          text-transform:uppercase;
+          letter-spacing:.2em;
+          }
+.navbar{
+        background-color:#EAFAF1
+        }
+.cart_img{
+          height:130px;
+          width:190px;
+          }
+
